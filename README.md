@@ -21,6 +21,7 @@ function fancyAlert(arg) {
 - [x] this is a complete item
 - [ ] this is an incomplete item
 
+# Table
 First Header | Second Header
 ------------ | -------------
 Content from cell 1 | Content from cell 2
