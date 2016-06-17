@@ -1,4 +1,4 @@
-function X = getcolfromcsvdata(columnname, csvdata)
+function X = getcolfromcsvdata(csvdata, columnname)
 %GETCOLFROMCSVDATA exstracts a column from csvdata.
 %
 %       An example of the field of CSVDATA

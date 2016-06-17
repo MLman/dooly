@@ -13,7 +13,7 @@ function csvdata = mycsvread(fname)
     fclose(fid);
     headers = strsplit(tline,',');
     ncols = length(headers);
-    out=textread(fname, '%s','delimiter',',','emptyvalue', NaN);
+    out=textread(fname, '%s','delimiter',',\n','emptyvalue', NaN);
     data = reshape(out(ncols+1:end),ncols,[])';
     csvdata.colnames = strtrim(headers);
     csvdata.data = data;
