@@ -12,9 +12,11 @@ function csvdata = mycsvread(fname)
     tline = fgets(fid);
     fclose(fid);
     headers = strsplit(tline,',');
-    ncols = length(headers);
-    out=textread(fname, '%s','delimiter',',\n','emptyvalue', NaN);
-    data = reshape(out(ncols+1:end),ncols,[])';
+%    ncols = length(headers);
+%    out=textread(fname, '%s','delimiter',',\n','emptyvalue', NaN);
+%    data = reshape(out(ncols+1:end),ncols,[])';
+    mytab = readtable(fname);
+    csvdata = table2csvdata(mytab);
     csvdata.colnames = strtrim(headers);
-    csvdata.data = data;
+%    csvdata.data = data;
 end
