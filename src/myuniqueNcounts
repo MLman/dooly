@@ -1,4 +1,4 @@
-function [U, C] = myuqnieNcounts(data)
+function [U, C] = myuniqueNcounts(data)
 %MYUQNIENCOUNTS returns the unique elements from data and C is the counts
 %of the elements.
 %
