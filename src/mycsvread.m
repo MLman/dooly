@@ -18,5 +18,6 @@ function csvdata = mycsvread(fname)
     mytab = readtable(fname);
     csvdata = table2csvdata(mytab);
     csvdata.colnames = strtrim(headers);
+    csvdata.path = fname;
 %    csvdata.data = data;
 end
