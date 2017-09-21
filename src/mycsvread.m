@@ -1,4 +1,4 @@
-function csvdata = mycsvread(fname)
+function [csvdata, mytab] = mycsvread(fname)
 %MYCSVREAD reads a CSV file and make it into a matrix of cells.
 %
 %   csvdata = mycsvread('f.csv');
