@@ -9,10 +9,20 @@ function tout = jointables(table1, table2, oncol1, oncol2, varargin)
 %
 %   See Also: MERGEMETADATA
 
-%   $ Hyunwoo J. Kim $  $ 2015/05/26 17:47:14 (CDT) $
+%   $ Hyunwoo J. Kim $  $ 2017/09/21 12:18:14 (CDT) $
 
     % Intersection
-    [~, ia, ib ] = intersect(table1(:,oncol1),table2(:,oncol2));
+    try
+        [~, ia, ib ] = intersect(table1(:,oncol1),table2(:,oncol2));
+    catch ME
+        if strcmp(ME.identifier, 'MATLAB:table:setmembership:DisjointVars')
+            var1 = table1.Properties.VariableNames{oncol1};
+            var2 = table2.Properties.VariableNames{oncol2};
+            warning(sprintf('Tables are joined by two different variables: ''%s'', ''%s''.', var1,var2));
+        end
+        
+        [~, ia, ib ] =  intersect(table2cell(table1(:,oncol1)),table2cell(table2(:,oncol2)));
+    end
     
     if nargin >=5 && ~isempty(varargin{1})
         idxColCSV1 = varargin{1};
